@@ -2,10 +2,14 @@
   "name": "next-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "create:feature": "node scripts/create-feature.mjs",
@@ -14,15 +18,24 @@
     "typecheck": "tsc -b"
   },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
+    "bcryptjs": "^3.0.3",
     "clsx": "^2.1.1",
+    "dotenv": "^18.0.9",
+    "jose": "^6.2.13",
     "next": "^16.0.0",
+    "next-intl": "^4.14.9",
+    "pg": "^8.23.1",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "tailwind-merge": "^3.7.0"
+    "tailwind-merge": "^3.7.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
     "@types/node": "^22.0.0",
+    "@types/pg": "^8.23.1",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.39.5",
@@ -30,7 +43,10 @@
     "eslint-config-prettier": "^10.1.8",
     "postcss": "^8.5.32",
     "prettier": "^3.9.10",
+    "prisma": "7.10.1",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.7.0"
+    "tsx": "^4.23.15",
+    "typescript": "^5.7.0",
+    "vitest": "^5.0.5"
   }
 }

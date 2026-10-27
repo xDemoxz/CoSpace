@@ -23,7 +23,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
 
 ## Scripts
 
@@ -37,6 +37,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 | `npm run format`       | Format code                          |
 | `npm run format:check` | Verify code is formatted             |
 | `npm run typecheck`    | Type-check the project (tsc -b)      |
+
+## Prisma (PostgreSQL)
+
+Prisma ORM 7 is configured with the PostgreSQL `pg` driver adapter. Copy `.env.example` to `.env`, then set:
+
+- `DATABASE_URL`: the connection string used by the app (for Supabase, use its pooler URL).
+- `DIRECT_URL`: a direct PostgreSQL connection string used by Prisma migrations.
+
+Define your tables as models in `prisma/schema.prisma`. Then run `npm run db:generate` to generate the client and `npm run db:migrate -- --name init` to create/apply the first migration. Use `npm run db:studio` to inspect the database.
+
+Keep real credentials in `.env` only; do not commit that file. If a database password was exposed in a committed file or shared publicly, rotate it in your database provider and update the local `.env`.
 
 ## Project Structure
 
