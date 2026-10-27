@@ -1,59 +1,35 @@
-// Barra de navegación del área privada y del panel de administración.
-// Recibe el usuario ya cargado en el servidor (layout), por eso aquí sí se
-// muestra el nombre desde el primer render.
-import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
-import type { SessionUser } from '@/lib/types';
-import { LocaleSwitcher } from '@/components/layout/locale-switcher';
-import { LogoutButton } from '@/components/layout/logout-button';
+// Barra del área privada: menú de usuario. Recibe el rol desde el layout (servidor).
+import type { ReactElement } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import type { Role } from "@/shared/types";
+import { Logo } from "@/shared/components/ui/logo";
+import { LocaleSwitcher } from "@/shared/layouts/locale-switcher";
+import { LogoutButton } from "@/shared/layouts/logout-button";
 
-export function UserNavbar({
-  user,
-  variant,
-}: {
-  user: SessionUser;
-  variant: 'private' | 'admin';
-}) {
-  const t = useTranslations('nav');
-  const isAdminArea = variant === 'admin';
-
+export function UserNavbar({ role }: { role: Role }): ReactElement {
+  const t = useTranslations("nav");
   return (
-    <header
-      className={
-        isAdminArea
-          ? 'bg-slate-900 text-white'
-          : 'border-b border-slate-200 bg-white'
-      }
-    >
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4 py-3">
-        <div className="flex items-center gap-6">
-          <Link
-            href="/"
-            className={`text-lg font-bold ${isAdminArea ? 'text-white' : 'text-indigo-700'}`}
-          >
-            BidHub{isAdminArea ? ' · Admin' : ''}
+    <header className="bg-ink text-linen">
+      <nav className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8">
+        <div className="flex items-center gap-4">
+          <Link href="/" aria-label="CoSpace">
+            <Logo />
           </Link>
-          <nav
-            className={`flex items-center gap-4 text-sm ${isAdminArea ? 'text-slate-300' : 'text-slate-600'}`}
-          >
-            <Link href="/auctions">{t('catalog')}</Link>
-            <Link href="/dashboard">{t('dashboard')}</Link>
-            <Link href="/publish">{t('publish')}</Link>
-            {user.role === 'ADMIN' ? (
-              <Link href="/admin">{t('admin')}</Link>
-            ) : null}
-          </nav>
-        </div>
-        <div className="flex items-center gap-3">
-          <LocaleSwitcher />
-          <span
-            className={`text-sm ${isAdminArea ? 'text-slate-300' : 'text-slate-600'}`}
-          >
-            {user.name}
+          <span className="border border-linen/30 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-linen/70">
+            {role}
           </span>
-          <LogoutButton />
         </div>
-      </div>
+        <div className="flex items-center gap-5 font-mono text-[11px] uppercase tracking-[0.14em] sm:gap-8">
+          <Link href="/spaces" className="text-linen/70 hover:text-linen">{t("spaces")}</Link>
+          <Link href="/dashboard" className="text-linen/70 hover:text-linen">{t("dashboard")}</Link>
+          {role === "ADMIN" ? (
+            <Link href="/admin" className="text-linen/70 hover:text-linen">{t("admin")}</Link>
+          ) : null}
+          <LogoutButton className="text-oak hover:text-linen" />
+          <LocaleSwitcher tone="dark" />
+        </div>
+      </nav>
     </header>
   );
 }

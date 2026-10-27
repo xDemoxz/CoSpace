@@ -1,33 +1,33 @@
 "use client";
-// Selector de idioma visible (T11). Cambia el prefijo de la URL (/es <-> /en)
-// manteniendo la misma página.
+// Selector de idioma visible: cambia /es <-> /en manteniendo la página.
+import type { ReactElement } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
 
-export function LocaleSwitcher() {
+export function LocaleSwitcher({ tone = "light" }: { tone?: "light" | "dark" }): ReactElement {
   const locale = useLocale();
   const t = useTranslations("nav");
   const router = useRouter();
   const pathname = usePathname();
+  const idle = tone === "dark" ? "text-linen/50 hover:text-linen" : "text-ink/45 hover:text-ink";
+  const current = tone === "dark" ? "text-linen" : "text-ink";
 
   return (
-    <label className="flex items-center gap-2 text-sm text-slate-600">
-      <span className="sr-only">{t("language")}</span>
-      <select
-        value={locale}
-        aria-label={t("language")}
-        onChange={(event) =>
-          router.replace(pathname, { locale: event.target.value as (typeof routing.locales)[number] })
-        }
-        className="rounded-md border border-slate-300 bg-white px-2 py-1 text-sm"
-      >
-        {routing.locales.map((code) => (
-          <option key={code} value={code}>
-            {code.toUpperCase()}
-          </option>
-        ))}
-      </select>
-    </label>
+    <div role="group" aria-label={t("language")} className="flex items-center font-mono text-[11px] uppercase tracking-[0.14em]">
+      {routing.locales.map((code, position) => (
+        <span key={code} className="flex items-center">
+          {position > 0 ? <span className={`mx-1.5 ${idle}`}>/</span> : null}
+          <button
+            type="button"
+            aria-pressed={code === locale}
+            onClick={() => router.replace(pathname, { locale: code as Locale })}
+            className={`transition-colors ${code === locale ? `${current} underline underline-offset-4` : idle}`}
+          >
+            {code}
+          </button>
+        </span>
+      ))}
+    </div>
   );
 }

@@ -1,11 +1,52 @@
-@import 'tailwindcss';
-@import './themes.css';
+@import "tailwindcss";
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* Paleta y tipografías de CoSpace. Las clases de Tailwind se generan desde aquí:
+   bg-linen, text-ink, border-ink/15, bg-forest, font-mono, etc. */
+@theme {
+  --color-linen: #eeeae1;
+  --color-paper: #f6f4ee;
+  --color-oak: #cbc1af;
+  --color-sand: #8c7b63;
+  --color-forest: #1d5a3a;
+  --color-ink: #34352f;
+  --color-ink-soft: #66675f;
+  --color-clay: #9b3b2a;
+
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-face), ui-monospace, monospace;
+}
+
+/* Cuadrícula de plano, como las láminas de un manual de marca. */
+@utility bg-blueprint {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-ink) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-ink) 7%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+@utility bg-blueprint-light {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-linen) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-linen) 9%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+html {
+  background: var(--color-linen);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "tnum";
+}
+
+::selection {
+  background: var(--color-forest);
+  color: var(--color-linen);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-forest);
+  outline-offset: 3px;
 }

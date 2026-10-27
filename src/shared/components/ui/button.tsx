@@ -1,27 +1,40 @@
-// Botón reutilizable. Variantes: primary (acción principal), secondary
-// (acción neutra) y danger (cancelar/eliminar).
-import type { ButtonHTMLAttributes } from 'react';
+import type { ButtonHTMLAttributes, ReactElement, ReactNode } from "react";
 
-type Variant = 'primary' | 'secondary' | 'danger';
+export type ButtonVariant = "primary" | "dark" | "outline" | "light";
 
-const VARIANTS: Record<Variant, string> = {
-  primary:
-    'bg-indigo-600 text-white hover:bg-indigo-700 disabled:bg-indigo-300',
-  secondary:
-    'bg-white text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50 disabled:text-slate-400',
-  danger: 'bg-red-600 text-white hover:bg-red-700 disabled:bg-red-300',
+const BASE =
+  "inline-flex items-center justify-between gap-8 px-4 py-3 font-mono text-xs uppercase tracking-[0.14em] transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50";
+
+const VARIANTS: Record<ButtonVariant, string> = {
+  primary: "bg-forest text-linen hover:bg-ink",
+  dark: "bg-ink text-linen hover:bg-forest",
+  outline: "border border-ink text-ink hover:bg-ink hover:text-linen",
+  light: "bg-linen text-forest hover:bg-oak",
 };
 
-export function buttonClass(variant: Variant = 'primary', extra = ''): string {
-  return `inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed ${VARIANTS[variant]} ${extra}`;
+// Se exporta la clase para usarla también en <Link>.
+export function buttonClass(variant: ButtonVariant = "primary", extra = ""): string {
+  return `${BASE} ${VARIANTS[variant]} ${extra}`;
 }
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant };
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant;
+  arrow?: boolean;
+  children: ReactNode;
+};
 
 export function Button({
-  variant = 'primary',
-  className = '',
+  variant = "primary",
+  arrow = false,
+  className = "",
+  children,
+  type = "button",
   ...props
-}: Props) {
-  return <button className={buttonClass(variant, className)} {...props} />;
+}: ButtonProps): ReactElement {
+  return (
+    <button type={type} className={buttonClass(variant, className)} {...props}>
+      <span>{children}</span>
+      {arrow ? <span aria-hidden>→</span> : null}
+    </button>
+  );
 }

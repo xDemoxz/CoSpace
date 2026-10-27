@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "title": "CoSpace",
+    "description": "Reserva escritorios, salas de reuniones y cabinas por horas."
+  },
+  "nav": {
+    "home": "Inicio",
+    "spaces": "Espacios",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "dashboard": "Mis reservas",
+    "admin": "Administración",
+    "logout": "Cerrar sesión",
+    "language": "Idioma"
+  },
+  "footer": {
+    "tagline": "Espacios de trabajo por horas",
+    "hours": "Lun — Dom · 07:00 — 21:00",
+    "city": "Bogotá, Colombia",
+    "rights": "© {year} CoSpace"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "body": "La página que buscas no existe o fue movida.",
+    "back": "Volver al inicio"
+  },
+  "home": {
+    "eyebrow": "CoSpace · Reservas por horas",
+    "edition": "Bogotá · 2026",
+    "heroLine1": "Tu espacio,",
+    "heroLine2": "por horas.",
+    "heroBody": "Reserva el lugar ideal para concentrarte, reunirte o hacer una llamada. Sin contratos, sin membresías.",
+    "cta": "Ver espacios",
+    "metaDesks": "Escritorios",
+    "metaRooms": "Salas",
+    "metaBooths": "Cabinas",
+    "metaHours": "Horario",
+    "typesTitle": "Tipos de espacio",
+    "typesAside": "Tres formatos para cada forma de trabajar.",
+    "codeLabel": "Código",
+    "useLabel": "Uso",
+    "typeUse": {
+      "DESK": "Foco individual",
+      "MEETING_ROOM": "Reuniones de equipo",
+      "BOOTH": "Llamadas privadas"
+    },
+    "howTitle": "Cómo funciona",
+    "steps": {
+      "1": { "title": "Elige un espacio", "body": "Explora el catálogo y filtra por tipo." },
+      "2": { "title": "Reserva tu horario", "body": "Escoge fecha, hora de inicio y duración." },
+      "3": { "title": "Llega y trabaja", "body": "Consulta o cancela tus reservas cuando quieras." }
+    },
+    "rulesTitle": "Reglas",
+    "rulesAside": "Simples y claras para todos.",
+    "rules": {
+      "duration": { "value": "1–4 h", "label": "Duración por reserva" },
+      "hours": { "value": "07–21", "label": "Horario de atención" },
+      "window": { "value": "30 días", "label": "Reserva con anticipación" },
+      "limit": { "value": "3", "label": "Reservas futuras activas" }
+    }
+  },
+  "spaceTypes": {
+    "DESK": "Escritorio",
+    "MEETING_ROOM": "Sala de reuniones",
+    "BOOTH": "Cabina"
+  },
+  "catalog": {
+    "index": "01",
+    "title": "Espacios",
+    "count": "{count, plural, =0 {Sin espacios} one {# espacio} other {# espacios}}",
+    "empty": "No hay espacios disponibles con este filtro.",
+    "all": "Todos",
+    "filterLabel": "Filtrar por tipo"
+  },
+  "space": {
+    "back": "Volver a espacios",
+    "type": "Tipo",
+    "capacity": "Capacidad",
+    "capacityValue": "{count, plural, one {# persona} other {# personas}}",
+    "pricePerHour": "Precio / hora",
+    "code": "Código",
+    "figure": "Fig. 01",
+    "rule1Label": "Duración",
+    "rule1Value": "1–4 h",
+    "rule2Label": "Horario",
+    "rule2Value": "07–21",
+    "rule3Label": "Anticipación",
+    "rule3Value": "30 días",
+    "loginToBook": "Inicia sesión para reservar este espacio.",
+    "loginCta": "Iniciar sesión"
+  },
+  "booking": {
+    "index": "02",
+    "title": "Reservar",
+    "date": "Fecha",
+    "start": "Hora de inicio",
+    "duration": "Duración",
+    "durationValue": "{hours, plural, one {# hora} other {# horas}}",
+    "ends": "Termina",
+    "total": "Total",
+    "submit": "Confirmar reserva",
+    "submitting": "Reservando…",
+    "estimateNote": "El total es un estimado; el precio final lo calcula el servidor.",
+    "successIndex": "OK",
+    "success": "¡Reserva confirmada!",
+    "goDashboard": "Ver mis reservas"
+  },
+  "dashboard": {
+    "index": "01",
+    "title": "Mis reservas",
+    "aside": "Consulta y cancela tus reservas.",
+    "loading": "Cargando…",
+    "limitLabel": "Reservas futuras",
+    "limitValue": "{used} / {max}",
+    "empty": "Aún no tienes reservas.",
+    "emptyCta": "Explorar espacios",
+    "hours": "{hours, plural, one {# hora} other {# horas}}",
+    "cancel": "Cancelar",
+    "cancelling": "Cancelando…",
+    "confirmCancel": "¿Cancelar la reserva de {name}?"
+  },
+  "admin": {
+    "index": "01",
+    "title": "Espacios",
+    "aside": "Crea, edita y desactiva espacios.",
+    "panel": "Panel de administración",
+    "navSpaces": "Gestionar espacios",
+    "loading": "Cargando…",
+    "empty": "No hay espacios todavía.",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "edit": "Editar",
+    "deactivate": "Desactivar",
+    "confirmDeactivate": "¿Desactivar {name}?",
+    "deactivated": "Espacio desactivado.",
+    "saved": "Espacio guardado.",
+    "newSpace": "Nuevo espacio",
+    "editSpace": "Editar espacio",
+    "name": "Nombre",
+    "description": "Descripción",
+    "type": "Tipo",
+    "capacity": "Capacidad",
+    "price": "Precio por hora (COP)",
+    "imageUrl": "URL de la imagen",
+    "save": "Guardar",
+    "saving": "Guardando…",
+    "cancelEdit": "Cancelar"
+  },
+  "auth": {
+    "panelLine1": "Trabaja",
+    "panelLine2": "a tu ritmo.",
+    "panelMeta": "CoSpace · Bogotá",
+    "loginIndex": "01",
+    "loginTitle": "Iniciar sesión",
+    "loginSubtitle": "Accede para gestionar tus reservas.",
+    "registerIndex": "01",
+    "registerTitle": "Crear cuenta",
+    "registerSubtitle": "Regístrate para empezar a reservar.",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "submitLogin": "Entrar",
+    "submitRegister": "Crear cuenta",
+    "submitting": "Enviando…",
+    "noAccount": "¿No tienes cuenta?",
+    "toRegister": "Regístrate",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "toLogin": "Inicia sesión"
+  },
+  "status": {
+    "CONFIRMED": "Confirmada",
+    "CANCELLED": "Cancelada"
+  },
+  "errors": {
+    "generic": "Algo salió mal. Inténtalo de nuevo.",
+    "VALIDATION_ERROR": "Revisa los datos del formulario",
+    "INVALID_CREDENTIALS": "Correo o contraseña incorrectos",
+    "EMAIL_TAKEN": "Ese correo ya está registrado",
+    "UNAUTHORIZED": "Tu sesión expiró. Inicia sesión de nuevo",
+    "ADMIN_ONLY": "Esta acción es solo para administradores",
+    "NOT_FOUND": "No encontrado",
+    "INTERNAL_ERROR": "Error interno del servidor"
+  }
+}

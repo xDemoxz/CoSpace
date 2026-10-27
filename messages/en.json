@@ -1,0 +1,184 @@
+{
+  "meta": {
+    "title": "CoSpace",
+    "description": "Book desks, meeting rooms and booths by the hour."
+  },
+  "nav": {
+    "home": "Home",
+    "spaces": "Spaces",
+    "login": "Log in",
+    "register": "Sign up",
+    "dashboard": "My bookings",
+    "admin": "Admin",
+    "logout": "Log out",
+    "language": "Language"
+  },
+  "footer": {
+    "tagline": "Workspaces by the hour",
+    "hours": "Mon — Sun · 07:00 — 21:00",
+    "city": "Bogotá, Colombia",
+    "rights": "© {year} CoSpace"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist or was moved.",
+    "back": "Back to home"
+  },
+  "home": {
+    "eyebrow": "CoSpace · Hourly bookings",
+    "edition": "Bogotá · 2026",
+    "heroLine1": "Your space,",
+    "heroLine2": "by the hour.",
+    "heroBody": "Book the right place to focus, meet or take a call. No contracts, no memberships.",
+    "cta": "Browse spaces",
+    "metaDesks": "Desks",
+    "metaRooms": "Rooms",
+    "metaBooths": "Booths",
+    "metaHours": "Hours",
+    "typesTitle": "Space types",
+    "typesAside": "Three formats for every way of working.",
+    "codeLabel": "Code",
+    "useLabel": "Use",
+    "typeUse": {
+      "DESK": "Solo focus",
+      "MEETING_ROOM": "Team meetings",
+      "BOOTH": "Private calls"
+    },
+    "howTitle": "How it works",
+    "steps": {
+      "1": { "title": "Pick a space", "body": "Browse the catalog and filter by type." },
+      "2": { "title": "Book your slot", "body": "Choose a date, start time and duration." },
+      "3": { "title": "Show up and work", "body": "Check or cancel your bookings anytime." }
+    },
+    "rulesTitle": "Rules",
+    "rulesAside": "Simple and clear for everyone.",
+    "rules": {
+      "duration": { "value": "1–4 h", "label": "Duration per booking" },
+      "hours": { "value": "07–21", "label": "Opening hours" },
+      "window": { "value": "30 days", "label": "Book in advance" },
+      "limit": { "value": "3", "label": "Active future bookings" }
+    }
+  },
+  "spaceTypes": {
+    "DESK": "Desk",
+    "MEETING_ROOM": "Meeting room",
+    "BOOTH": "Booth"
+  },
+  "catalog": {
+    "index": "01",
+    "title": "Spaces",
+    "count": "{count, plural, =0 {No spaces} one {# space} other {# spaces}}",
+    "empty": "No spaces available for this filter.",
+    "all": "All",
+    "filterLabel": "Filter by type"
+  },
+  "space": {
+    "back": "Back to spaces",
+    "type": "Type",
+    "capacity": "Capacity",
+    "capacityValue": "{count, plural, one {# person} other {# people}}",
+    "pricePerHour": "Price / hour",
+    "code": "Code",
+    "figure": "Fig. 01",
+    "rule1Label": "Duration",
+    "rule1Value": "1–4 h",
+    "rule2Label": "Hours",
+    "rule2Value": "07–21",
+    "rule3Label": "Advance",
+    "rule3Value": "30 days",
+    "loginToBook": "Log in to book this space.",
+    "loginCta": "Log in"
+  },
+  "booking": {
+    "index": "02",
+    "title": "Book",
+    "date": "Date",
+    "start": "Start time",
+    "duration": "Duration",
+    "durationValue": "{hours, plural, one {# hour} other {# hours}}",
+    "ends": "Ends",
+    "total": "Total",
+    "submit": "Confirm booking",
+    "submitting": "Booking…",
+    "estimateNote": "The total is an estimate; the final price is calculated by the server.",
+    "successIndex": "OK",
+    "success": "Booking confirmed!",
+    "goDashboard": "View my bookings"
+  },
+  "dashboard": {
+    "index": "01",
+    "title": "My bookings",
+    "aside": "Check and cancel your bookings.",
+    "loading": "Loading…",
+    "limitLabel": "Future bookings",
+    "limitValue": "{used} / {max}",
+    "empty": "You have no bookings yet.",
+    "emptyCta": "Browse spaces",
+    "hours": "{hours, plural, one {# hour} other {# hours}}",
+    "cancel": "Cancel",
+    "cancelling": "Cancelling…",
+    "confirmCancel": "Cancel the booking for {name}?"
+  },
+  "admin": {
+    "index": "01",
+    "title": "Spaces",
+    "aside": "Create, edit and deactivate spaces.",
+    "panel": "Admin panel",
+    "navSpaces": "Manage spaces",
+    "loading": "Loading…",
+    "empty": "No spaces yet.",
+    "active": "Active",
+    "inactive": "Inactive",
+    "edit": "Edit",
+    "deactivate": "Deactivate",
+    "confirmDeactivate": "Deactivate {name}?",
+    "deactivated": "Space deactivated.",
+    "saved": "Space saved.",
+    "newSpace": "New space",
+    "editSpace": "Edit space",
+    "name": "Name",
+    "description": "Description",
+    "type": "Type",
+    "capacity": "Capacity",
+    "price": "Price per hour (COP)",
+    "imageUrl": "Image URL",
+    "save": "Save",
+    "saving": "Saving…",
+    "cancelEdit": "Cancel"
+  },
+  "auth": {
+    "panelLine1": "Work",
+    "panelLine2": "at your pace.",
+    "panelMeta": "CoSpace · Bogotá",
+    "loginIndex": "01",
+    "loginTitle": "Log in",
+    "loginSubtitle": "Sign in to manage your bookings.",
+    "registerIndex": "01",
+    "registerTitle": "Create account",
+    "registerSubtitle": "Sign up to start booking.",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "submitLogin": "Log in",
+    "submitRegister": "Create account",
+    "submitting": "Sending…",
+    "noAccount": "Don't have an account?",
+    "toRegister": "Sign up",
+    "haveAccount": "Already have an account?",
+    "toLogin": "Log in"
+  },
+  "status": {
+    "CONFIRMED": "Confirmed",
+    "CANCELLED": "Cancelled"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "VALIDATION_ERROR": "Please check the form data",
+    "INVALID_CREDENTIALS": "Wrong email or password",
+    "EMAIL_TAKEN": "That email is already registered",
+    "UNAUTHORIZED": "Your session expired. Please log in again",
+    "ADMIN_ONLY": "This action is for admins only",
+    "NOT_FOUND": "Not found",
+    "INTERNAL_ERROR": "Internal server error"
+  }
+}

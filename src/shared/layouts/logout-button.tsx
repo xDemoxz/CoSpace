@@ -1,24 +1,21 @@
 "use client";
-// Cierra la sesión: revoca el refresh token en el servidor y vuelve al inicio.
+import type { ReactElement } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { apiFetch } from "@/lib/api";
-import { Button } from "@/components/ui/button";
+import { apiFetch } from "@/shared/lib/api";
 
-export function LogoutButton() {
+export function LogoutButton({ className = "" }: { className?: string }): ReactElement {
   const t = useTranslations("nav");
   const locale = useLocale();
 
-  async function logout() {
+  async function handleLogout(): Promise<void> {
     await apiFetch("/api/auth/logout", { method: "POST" }).catch(() => undefined);
-    // Recarga completa para que ninguna página conserve datos de la sesión anterior.
-    // Recarga completa a propósito: así los layouts del servidor leen la sesión nueva.
-    // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+    // Recarga completa: los layouts del servidor vuelven a leer la sesión (ya vacía).
     window.location.assign(`/${locale}`);
   }
 
   return (
-    <Button variant="secondary" onClick={logout}>
+    <button type="button" onClick={handleLogout} className={className}>
       {t("logout")}
-    </Button>
+    </button>
   );
 }
