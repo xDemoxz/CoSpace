@@ -1,80 +1,95 @@
-# CoSpace_NicolasGuarin
+# CoSpace
 
-# CoSpace_NicolasGuarin
+Plataforma fullstack de reservas de espacios de coworking (escritorios, salas de reuniones y cabinas) por horas.
+Los usuarios se registran, exploran el catálogo, reservan y cancelan sus reservas; los administradores gestionan los espacios.
+Hecha con Next.js 16 (App Router), TypeScript, Prisma y PostgreSQL (Supabase).
 
-A Next.js 16 (App Router + Turbopack) application built with feature-based.
+## 1. Requisitos previos
 
-This project is set up with ESLint + Prettier for code quality.
+- Node.js 22 o superior y npm
+- Una cuenta de [Supabase](https://supabase.com) con un proyecto creado (o PostgreSQL local)
+- Docker (opcional, para ejecutar la imagen)
 
-## Built With
+## 2. Variables de entorno
 
-- [Next.js 16](https://nextjs.org/) (App Router + Turbopack)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
+Copia `.env.example` a `.env` y completa:
 
-## Getting Started
+| Variable | Para qué sirve | Cómo obtenerla |
+|---|---|---|
+| `DATABASE_URL` | Conexión a PostgreSQL | Supabase → botón **Connect** → **Session pooler** (puerto 5432). Reemplaza `[YOUR-PASSWORD]` por la contraseña de la base de datos |
+| `JWT_ACCESS_SECRET` | Firma el access token | `openssl rand -base64 48` |
+| `JWT_REFRESH_SECRET` | Firma el refresh token (distinto al anterior) | `openssl rand -base64 48` |
+| `ACCESS_TOKEN_EXPIRES_IN` | Duración del access token | `15m` |
+| `REFRESH_TOKEN_EXPIRES_IN` | Duración del refresh token | `7d` |
+| `SEED_ADMIN_EMAIL` / `SEED_ADMIN_PASSWORD` | Credenciales del administrador que crea el seed | Las que quieras |
 
-First, install dependencies and run the development server:
+## 3. Ejecución en desarrollo (en este orden)
 
-```sh
-npm install
-npm run dev
+```bash
+git clone <URL-DEL-REPOSITORIO>
+cd <CARPETA>
+npm install                       # instala dependencias y genera el cliente de Prisma
+cp .env.example .env              # y completa los valores
+npx prisma migrate deploy         # crea las tablas
+npx prisma db seed                # crea el admin, usuarios y espacios de ejemplo
+npm run dev                       # http://localhost:3000
 ```
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+## 4. Credenciales de ejemplo (seed)
 
-## Scripts
+| Rol | Correo | Contraseña |
+|---|---|---|
+| Administrador | `admin@cospace.com` | `Admin1234!` (o lo que pongas en `.env`) |
+| Usuarios | `ana@cospace.com`, `luis@cospace.com` | `User1234!` |
 
-| Script                 | Description                          |
-| ---------------------- | ------------------------------------ |
-| `npm run dev`          | Start development server (Turbopack) |
-| `npm run build`        | Build for production                 |
-| `npm run start`        | Start production server              |
-| `npm run lint`         | Run ESLint                           |
-| `npm run lint:fix`     | Run ESLint with auto-fix             |
-| `npm run format`       | Format code                          |
-| `npm run format:check` | Verify code is formatted             |
-| `npm run typecheck`    | Type-check the project (tsc -b)      |
+## 5. Ejecución con Docker
 
-## Prisma (PostgreSQL)
+```bash
+docker build -t cospace .
+docker run -p 3000:3000 --env-file .env cospace
+```
 
-Prisma ORM 7 is configured with the PostgreSQL `pg` driver adapter. Copy `.env.example` to `.env`, then set:
+Las variables se pasan con `--env-file .env`. Las migraciones y el seed se ejecutan aparte (paso 3), apuntando a la misma base de datos.
 
-- `DATABASE_URL`: the connection string used by the app (for Supabase, use its pooler URL).
-- `DIRECT_URL`: a direct PostgreSQL connection string used by Prisma migrations.
+## 6. Scripts
 
-Define your tables as models in `prisma/schema.prisma`. Then run `npm run db:generate` to generate the client and `npm run db:migrate -- --name init` to create/apply the first migration. Use `npm run db:studio` to inspect the database.
+| Script | Qué hace |
+|---|---|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` / `npm start` | Compila y ejecuta en producción |
+| `npm run lint` | ESLint |
+| `npm test` | Pruebas de las reglas de reserva (Vitest) |
+| `npx prisma migrate deploy` | Aplica las migraciones |
+| `npx prisma db seed` | Carga los datos de ejemplo |
+| `npx prisma studio` | Explorador visual de la base de datos |
 
-Keep real credentials in `.env` only; do not commit that file. If a database password was exposed in a committed file or shared publicly, rotate it in your database provider and update the local `.env`.
-
-## Project Structure
-
-This project is built on **Next.js 16 (App Router + Turbopack)** with React Server Components (RSC) by default.
+## 7. Estructura de carpetas
 
 ```
+prisma/                 esquema, migraciones y seed
+messages/               textos en español e inglés
 src/
-├── app/          # Next.js App Router (Server & Client Components)
-├──     ├── layout.tsx    # Root layout (Server Component)
-    ├── page.tsx      # Home page (Server Component)
-    └── globals.css   # Tailwind CSS & global styling directives
-├── features/     # Feature modules (pages, hooks, api, types)
-├── shared/       # Reusable, domain-agnostic resources
-└──     ├── components/ # Shared UI components & primitives
-    ├── hooks/      # Shared custom hooks
-    ├── layouts/    # High-level layout wrappers
-    ├── stores/     # Global state stores
-    ├── types/      # Global TypeScript definitions
-    └── utils/      # Pure utility functions
+├── proxy.ts            protege rutas privadas y de admin, renueva la sesión y aplica el idioma
+├── i18n/               configuración de next-intl
+├── app/
+│   ├── [locale]/       páginas por route group: (public) (auth) (private) (admin)
+│   └── api/            route handlers: auth, spaces, bookings, admin
+├── features/           código por funcionalidad
+│   ├── auth/           tokens, cookies, sesión, servicio y formularios
+│   ├── spaces/         catálogo, detalle, administración de espacios
+│   ├── bookings/       reglas de reserva, servicio, formulario y panel
+│   └── home/           página de inicio
+└── shared/             UI reutilizable, layouts, cliente HTTP, tipos y utilidades de servidor
 ```
 
-## Authors
+## 8. Decisiones
 
-- **Your Name** - [@your_twitter](https://twitter.com/your_twitter) - your@email.com
+- **Renderizado:** Home SSG, catálogo y detalle SSR, dashboard CSR.
+- **Zona horaria:** las fechas se guardan en UTC; el horario de 7:00 a 21:00 se valida en `America/Bogota`.
+- **Concurrencia:** crear una reserva bloquea la fila del espacio y la del usuario (`SELECT ... FOR UPDATE`), así dos reservas simultáneas no pueden ocupar el mismo hueco.
+- **Códigos HTTP:** 400 datos inválidos (reglas 1-3), 401 sin sesión, 403 sin permiso, 404 no existe o es de otro usuario, 409 conflicto (reglas 4-7, 10, 13).
+- **Seguridad:** tokens solo en cookies `httpOnly`, `secure` y `sameSite`; el refresh token se guarda hasheado, rota en cada uso y el logout lo revoca. Cada handler valida sesión y rol, sin depender del proxy.
 
-See also the list of [contributors](https://github.com/your_username/CoSpace_NicolasGuarin/graphs/contributors) who participated in this project.
+## 9. URL desplegada
 
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
+https://<tu-app>.vercel.app

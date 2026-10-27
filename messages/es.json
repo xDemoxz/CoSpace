@@ -1,139 +1,176 @@
 {
   "meta": {
     "title": "CoSpace",
-    "description": "Reserva escritorios, salas de reuniones y cabinas por horas."
+    "description": "Reserva espacios de coworking por horas"
   },
   "nav": {
     "home": "Inicio",
     "spaces": "Espacios",
-    "login": "Iniciar sesión",
-    "register": "Registrarse",
     "dashboard": "Mis reservas",
-    "admin": "Administración",
-    "logout": "Cerrar sesión",
+    "admin": "Panel",
+    "login": "Ingresar",
+    "register": "Crear cuenta",
+    "logout": "Salir",
     "language": "Idioma"
   },
   "footer": {
-    "tagline": "Espacios de trabajo por horas",
-    "hours": "Lun — Dom · 07:00 — 21:00",
-    "city": "Bogotá, Colombia",
+    "tagline": "Coworking por horas",
+    "hours": "Lun — Dom · 07 a 21",
+    "city": "Barranquilla, CO",
     "rights": "© {year} CoSpace"
   },
   "notFound": {
-    "title": "Página no encontrada",
-    "body": "La página que buscas no existe o fue movida.",
+    "title": "Este espacio no existe",
+    "body": "La página que buscas no está disponible o fue movida.",
     "back": "Volver al inicio"
-  },
-  "home": {
-    "eyebrow": "CoSpace · Reservas por horas",
-    "edition": "Bogotá · 2026",
-    "heroLine1": "Tu espacio,",
-    "heroLine2": "por horas.",
-    "heroBody": "Reserva el lugar ideal para concentrarte, reunirte o hacer una llamada. Sin contratos, sin membresías.",
-    "cta": "Ver espacios",
-    "metaDesks": "Escritorios",
-    "metaRooms": "Salas",
-    "metaBooths": "Cabinas",
-    "metaHours": "Horario",
-    "typesTitle": "Tipos de espacio",
-    "typesAside": "Tres formatos para cada forma de trabajar.",
-    "codeLabel": "Código",
-    "useLabel": "Uso",
-    "typeUse": {
-      "DESK": "Foco individual",
-      "MEETING_ROOM": "Reuniones de equipo",
-      "BOOTH": "Llamadas privadas"
-    },
-    "howTitle": "Cómo funciona",
-    "steps": {
-      "1": { "title": "Elige un espacio", "body": "Explora el catálogo y filtra por tipo." },
-      "2": { "title": "Reserva tu horario", "body": "Escoge fecha, hora de inicio y duración." },
-      "3": { "title": "Llega y trabaja", "body": "Consulta o cancela tus reservas cuando quieras." }
-    },
-    "rulesTitle": "Reglas",
-    "rulesAside": "Simples y claras para todos.",
-    "rules": {
-      "duration": { "value": "1–4 h", "label": "Duración por reserva" },
-      "hours": { "value": "07–21", "label": "Horario de atención" },
-      "window": { "value": "30 días", "label": "Reserva con anticipación" },
-      "limit": { "value": "3", "label": "Reservas futuras activas" }
-    }
   },
   "spaceTypes": {
     "DESK": "Escritorio",
     "MEETING_ROOM": "Sala de reuniones",
     "BOOTH": "Cabina"
   },
+  "home": {
+    "eyebrow": "CoSpace · Reservas por hora",
+    "edition": "Edición 2026",
+    "heroLine1": "Espacio",
+    "heroLine2": "por horas.",
+    "heroBody": "Escritorios, salas y cabinas listos cuando los necesitas. Eliges el bloque, pagas solo las horas que usas.",
+    "cta": "Explorar espacios",
+    "metaDesks": "Escritorios",
+    "metaRooms": "Salas",
+    "metaBooths": "Cabinas",
+    "metaHours": "Horario",
+    "typesTitle": "Tres formas de trabajar",
+    "typesAside": "Elige el tipo de espacio y mira la disponibilidad.",
+    "useLabel": "Ideal para",
+    "typeUse": {
+      "DESK": "Concentración",
+      "MEETING_ROOM": "Equipos",
+      "BOOTH": "Llamadas"
+    },
+    "howTitle": "Cómo funciona",
+    "steps": {
+      "1": {
+        "title": "Elige un espacio",
+        "body": "Filtra por tipo y revisa capacidad y precio por hora."
+      },
+      "2": {
+        "title": "Reserva un bloque",
+        "body": "Escoge el día, la hora de inicio y de una a cuatro horas."
+      },
+      "3": {
+        "title": "Gestiona tus reservas",
+        "body": "Consulta y cancela desde tu panel, hasta dos horas antes."
+      }
+    },
+    "rulesTitle": "Reglas claras",
+    "rulesAside": "Las mismas reglas para todos, validadas en el servidor.",
+    "rules": {
+      "duration": {
+        "value": "1–4 h",
+        "label": "Duración por reserva"
+      },
+      "hours": {
+        "value": "07–21",
+        "label": "Horario de reserva"
+      },
+      "window": {
+        "value": "30 d",
+        "label": "Anticipación máxima"
+      },
+      "limit": {
+        "value": "3",
+        "label": "Reservas futuras por persona"
+      }
+    },
+    "codeLabel": "Código"
+  },
   "catalog": {
-    "index": "01",
-    "title": "Espacios",
-    "count": "{count, plural, =0 {Sin espacios} one {# espacio} other {# espacios}}",
-    "empty": "No hay espacios disponibles con este filtro.",
+    "index": "02 — Catálogo",
+    "title": "Espacios disponibles",
+    "count": "{count, plural, =0 {Sin resultados} one {# espacio} other {# espacios}}",
     "all": "Todos",
-    "filterLabel": "Filtrar por tipo"
+    "filterLabel": "Filtrar por tipo",
+    "empty": "No hay espacios de este tipo por ahora."
   },
   "space": {
-    "back": "Volver a espacios",
+    "back": "Todos los espacios",
     "type": "Tipo",
     "capacity": "Capacidad",
     "capacityValue": "{count, plural, one {# persona} other {# personas}}",
-    "pricePerHour": "Precio / hora",
+    "pricePerHour": "Precio por hora",
     "code": "Código",
     "figure": "Fig. 01",
     "rule1Label": "Duración",
-    "rule1Value": "1–4 h",
+    "rule1Value": "1 a 4 h",
     "rule2Label": "Horario",
-    "rule2Value": "07–21",
+    "rule2Value": "07 a 21",
     "rule3Label": "Anticipación",
     "rule3Value": "30 días",
     "loginToBook": "Inicia sesión para reservar este espacio.",
-    "loginCta": "Iniciar sesión"
+    "loginCta": "Ingresar y reservar"
   },
   "booking": {
-    "index": "02",
-    "title": "Reservar",
+    "index": "Reserva",
+    "title": "Elige tu bloque",
     "date": "Fecha",
-    "start": "Hora de inicio",
+    "start": "Inicio",
     "duration": "Duración",
     "durationValue": "{hours, plural, one {# hora} other {# horas}}",
     "ends": "Termina",
-    "total": "Total",
+    "total": "Total estimado",
     "submit": "Confirmar reserva",
     "submitting": "Reservando…",
-    "estimateNote": "El total es un estimado; el precio final lo calcula el servidor.",
-    "successIndex": "OK",
-    "success": "¡Reserva confirmada!",
-    "goDashboard": "Ver mis reservas"
+    "successIndex": "Confirmada",
+    "success": "Tu reserva quedó confirmada.",
+    "goDashboard": "Ver mis reservas",
+    "estimateNote": "El total final lo calcula el servidor."
   },
   "dashboard": {
-    "index": "01",
+    "index": "03 — Panel",
     "title": "Mis reservas",
-    "aside": "Consulta y cancela tus reservas.",
-    "loading": "Cargando…",
-    "limitLabel": "Reservas futuras",
-    "limitValue": "{used} / {max}",
-    "empty": "Aún no tienes reservas.",
-    "emptyCta": "Explorar espacios",
+    "aside": "Puedes cancelar hasta 2 horas antes del inicio.",
+    "limitLabel": "Reservas futuras confirmadas",
+    "limitValue": "{used} de {max}",
+    "empty": "Todavía no tienes reservas.",
+    "emptyCta": "Buscar un espacio",
+    "loading": "Cargando reservas…",
     "hours": "{hours, plural, one {# hora} other {# horas}}",
     "cancel": "Cancelar",
     "cancelling": "Cancelando…",
-    "confirmCancel": "¿Cancelar la reserva de {name}?"
+    "confirmCancel": "¿Cancelar la reserva en {name}?"
+  },
+  "status": {
+    "CONFIRMED": "Confirmada",
+    "CANCELLED": "Cancelada"
+  },
+  "auth": {
+    "loginIndex": "01 — Acceso",
+    "loginTitle": "Bienvenido de nuevo",
+    "loginSubtitle": "Ingresa para reservar y gestionar tus espacios.",
+    "registerIndex": "01 — Registro",
+    "registerTitle": "Crea tu cuenta",
+    "registerSubtitle": "Solo toma un minuto.",
+    "name": "Nombre",
+    "email": "Correo",
+    "password": "Contraseña",
+    "submitLogin": "Ingresar",
+    "submitRegister": "Crear cuenta",
+    "submitting": "Enviando…",
+    "noAccount": "¿No tienes cuenta?",
+    "toRegister": "Regístrate",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "toLogin": "Ingresa",
+    "panelLine1": "Trabaja",
+    "panelLine2": "a tu ritmo.",
+    "panelMeta": "CoSpace · Barranquilla"
   },
   "admin": {
-    "index": "01",
+    "index": "04 — Administración",
     "title": "Espacios",
-    "aside": "Crea, edita y desactiva espacios.",
-    "panel": "Panel de administración",
+    "aside": "Crea, edita y desactiva espacios del catálogo.",
+    "panel": "Panel",
     "navSpaces": "Gestionar espacios",
-    "loading": "Cargando…",
-    "empty": "No hay espacios todavía.",
-    "active": "Activo",
-    "inactive": "Inactivo",
-    "edit": "Editar",
-    "deactivate": "Desactivar",
-    "confirmDeactivate": "¿Desactivar {name}?",
-    "deactivated": "Espacio desactivado.",
-    "saved": "Espacio guardado.",
     "newSpace": "Nuevo espacio",
     "editSpace": "Editar espacio",
     "name": "Nombre",
@@ -144,41 +181,37 @@
     "imageUrl": "URL de la imagen",
     "save": "Guardar",
     "saving": "Guardando…",
-    "cancelEdit": "Cancelar"
-  },
-  "auth": {
-    "panelLine1": "Trabaja",
-    "panelLine2": "a tu ritmo.",
-    "panelMeta": "CoSpace · Bogotá",
-    "loginIndex": "01",
-    "loginTitle": "Iniciar sesión",
-    "loginSubtitle": "Accede para gestionar tus reservas.",
-    "registerIndex": "01",
-    "registerTitle": "Crear cuenta",
-    "registerSubtitle": "Regístrate para empezar a reservar.",
-    "name": "Nombre",
-    "email": "Correo electrónico",
-    "password": "Contraseña",
-    "submitLogin": "Entrar",
-    "submitRegister": "Crear cuenta",
-    "submitting": "Enviando…",
-    "noAccount": "¿No tienes cuenta?",
-    "toRegister": "Regístrate",
-    "haveAccount": "¿Ya tienes cuenta?",
-    "toLogin": "Inicia sesión"
-  },
-  "status": {
-    "CONFIRMED": "Confirmada",
-    "CANCELLED": "Cancelada"
+    "cancelEdit": "Cancelar",
+    "edit": "Editar",
+    "deactivate": "Desactivar",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "confirmDeactivate": "¿Desactivar {name}? Dejará de aparecer en el catálogo.",
+    "saved": "Espacio guardado.",
+    "deactivated": "Espacio desactivado.",
+    "empty": "No hay espacios.",
+    "loading": "Cargando espacios…"
   },
   "errors": {
-    "generic": "Algo salió mal. Inténtalo de nuevo.",
-    "VALIDATION_ERROR": "Revisa los datos del formulario",
+    "generic": "Algo salió mal. Intenta de nuevo.",
+    "VALIDATION_ERROR": "Revisa los datos enviados",
+    "UNAUTHORIZED": "Debes iniciar sesión",
     "INVALID_CREDENTIALS": "Correo o contraseña incorrectos",
-    "EMAIL_TAKEN": "Ese correo ya está registrado",
-    "UNAUTHORIZED": "Tu sesión expiró. Inicia sesión de nuevo",
-    "ADMIN_ONLY": "Esta acción es solo para administradores",
-    "NOT_FOUND": "No encontrado",
-    "INTERNAL_ERROR": "Error interno del servidor"
+    "EMAIL_TAKEN": "Ya existe una cuenta con ese correo",
+    "ADMIN_ONLY": "Solo un administrador puede hacer esto",
+    "NOT_WHOLE_HOUR": "La reserva debe empezar en una hora completa",
+    "INVALID_DURATION": "La reserva debe durar entre 1 y 4 horas",
+    "OUTSIDE_OPENING_HOURS": "Solo se puede reservar entre las 7:00 y las 21:00",
+    "BOOKING_IN_PAST": "No se puede reservar en el pasado",
+    "BOOKING_TOO_FAR": "Solo puedes reservar con máximo 30 días de anticipación",
+    "SPACE_OVERLAP": "Ese espacio ya está reservado en ese horario",
+    "USER_OVERLAP": "Ya tienes otra reserva en ese horario",
+    "MAX_FUTURE_BOOKINGS": "Ya tienes 3 reservas futuras confirmadas",
+    "SPACE_INACTIVE": "Este espacio no está disponible",
+    "SPACE_NOT_FOUND": "El espacio no existe",
+    "BOOKING_NOT_FOUND": "La reserva no existe",
+    "ALREADY_CANCELLED": "La reserva ya está cancelada",
+    "CANCELLATION_TOO_LATE": "Solo puedes cancelar hasta 2 horas antes del inicio",
+    "SPACE_HAS_FUTURE_BOOKINGS": "No se puede desactivar: tiene reservas futuras confirmadas"
   }
 }
